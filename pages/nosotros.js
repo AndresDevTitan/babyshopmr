@@ -1,11 +1,14 @@
 import Link from "next/link";
+import Layout from "../components/layout";
 
 export default function Nosotros() {
-  return (
-    <div>
-      <h1>Desde Nosotros</h1>
+	return (
+		<div>
+			<Layout pagina='Nosotros'>
+				<h1>Desde Nosotros</h1>
 
-      <Link href="/">Ir a Inicio</Link>
-    </div>
-  );
+				<Link href="/">Ir a Inicio</Link>
+			</Layout>
+		</div>
+	);
 }
