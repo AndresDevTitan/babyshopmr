@@ -17,6 +17,7 @@ export default function Header() {
                         <Link href="/blog">Blog</Link>
                         <Link href="/tienda">Tienda</Link>
                     </nav>
+
                 </div>
             </div>
         </header>
