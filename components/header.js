@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import Styles from '../styles/Header.module.css'
+import Styles from '../styles/header.module.css'
 import Image from 'next/image'
 
 export default function Header() {
