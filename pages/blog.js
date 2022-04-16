@@ -1,12 +1,24 @@
+import Entrada from "../components/Entrada";
 import Layout from "../components/layout";
+import styles from '../styles/Blog.module.css'
 
-export default function Blog({ result }) {
-    console.log(result);
+export default function Blog({ results }) {
 
     return (
         <div>
             <Layout pagina='Blog'>
-                <h1>Desde Blog</h1>
+                <main className="contenedor">
+                    <h2 className="heading">Desde Blog</h2>
+
+                    <div className={styles.blog}>
+                        {results.data.map(result => (
+                            <Entrada
+                                key={result.id}
+                                entrada={result}
+                            />
+                        ))}
+                    </div>
+                </main>
             </Layout>
         </div>
     );
@@ -15,10 +27,10 @@ export default function Blog({ result }) {
 export async function getServerSideProps() {
     const url = 'http://localhost:1337/api/blogs?populate=*'
     const response = await fetch(url);
-    const result = await response.json();
+    const results = await response.json();
     return {
         props: {
-            result
+            results
         }
     }
 }

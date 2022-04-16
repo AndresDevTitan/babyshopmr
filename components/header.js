@@ -8,7 +8,9 @@ export default function Header() {
             <div className="contenedor">
                 <div className={Styles.barra}>
                     <Link href='/'>
-                        <Image src='/img/logo.svg' width={400} height={100} alt='Imagen Logo'></Image>
+                        <a>
+                            <Image priority="true" src='/img/logo.svg' width={400} height={100} alt='Imagen Logo'></Image>
+                        </a>
                     </Link>
 
                     <nav className={Styles.navegacion}>
