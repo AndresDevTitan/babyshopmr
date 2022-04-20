@@ -13,8 +13,6 @@ export default function Layout({ children, pagina }) {
 
 			<Header />
 
-			<h1 className="heading">Aprendiendo Next.js</h1>
-
 			{children}
 
 			<Footer />

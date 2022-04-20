@@ -25,7 +25,7 @@ export default function Blog({ results }) {
 }
 
 export async function getServerSideProps() {
-    const url = 'http://localhost:1337/api/blogs?populate=*'
+    const url = `${process.env.API_URL}/api/blogs?populate=*`
     const response = await fetch(url);
     const results = await response.json();
     return {
