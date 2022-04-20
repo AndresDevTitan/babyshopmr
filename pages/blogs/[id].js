@@ -1,6 +1,6 @@
 import Layout from "../../components/layout";
 import Image from 'next/image';
-import { formatearFecha } from '../helpers/Index'
+import { formatearFecha } from '../../helpers/Index'
 import styles from '../../styles/Entrada.module.css'
 import NotFound from "../404";
 
