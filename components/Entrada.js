@@ -1,4 +1,4 @@
-import { formatearFecha } from '../helpers'
+import { formatearFecha } from '../Helpers'
 import Link from 'next/link'
 import Image from 'next/image'
 import styles from '../styles/Entrada.module.css'
