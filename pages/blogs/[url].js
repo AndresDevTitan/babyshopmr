@@ -9,15 +9,15 @@ export default function EntradaBlog({ entrada }) {
         return (<NotFound />);
     }
 
-    const { contenido, titulo, publishedAt } = entrada.data.attributes;
-    const { url } = entrada.data.attributes.imagen.data.attributes;
+    const { contenido, titulo, publishedAt } = entrada.data[0].attributes;
+    const image = entrada.data[0].attributes.imagen.data.attributes.url;
 
     return (
-        <Layout>
+        <Layout pagina={titulo}>
             <main className="contenedor">
                 <h1 className="heading">{titulo}</h1>
                 <article className={styles.entrada}>
-                    <Image layout="responsive" width={800} height={600} src={url} alt={`Imagen entrada ${titulo}`} />
+                    <Image priority="true" layout="responsive" width={800} height={600} src={image} alt={`Imagen entrada ${titulo}`} />
                     <div className={styles.contenido}>
                         <p className={styles.fecha}>{formatearFecha(publishedAt)}</p>
                         <p className={styles.texto}>{contenido}</p>
@@ -28,9 +28,9 @@ export default function EntradaBlog({ entrada }) {
     )
 }
 
-export async function getServerSideProps({ query: { id } }) {
-    const url = `${process.env.API_URL}/api/blogs/${id}?populate=*`;
-    const response = await fetch(url);
+export async function getServerSideProps({ query: { url } }) {
+    const urlBlog = `${process.env.API_URL}/api/blogs?filters[url][$eq]=${url}&populate=*`;
+    const response = await fetch(urlBlog);
     const result = await response.json();
 
     return {
